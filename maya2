@@ -1,0 +1,31 @@
+n = int(input())
+Haab_months = {
+    'pop': 0, 'no': 1, 'zip': 2, 'zotz': 3, 'tzec': 4, 'xul': 5, 'yoxkin': 6,
+    'mol': 7, 'chen': 8, 'yax': 9, 'zac': 10, 'ceh': 11, 'mac': 12,
+    'kankin': 13, 'muan': 14, 'pax': 15, 'koyab': 16, 'cumhu': 17, 'uayet': 18
+}
+Tzolkin_names = [
+    'imix', 'ik', 'akbal', 'kan', 'chicchan', 'cimi', 'manik', 'lamat',
+    'muluk', 'ok', 'chuen', 'eb', 'ben', 'ix', 'mem', 'cib', 'caban',
+    'eznab', 'canac', 'ahau'
+]
+
+print(n)  # 输出日期数量
+
+for _ in range(n):
+    parts = input().split('. ')
+    day = int(parts[0])
+    month_year = parts[1].split()
+    month = Haab_months[month_year[0]]
+    year = int(month_year[1])
+    
+    # 计算总天数
+    total_days = day + month * 20 + year * 365
+    
+    # 转换为Tzolkin历
+    tzolkin_year = total_days // 260
+    remainder = total_days % 260
+    tzolkin_number = remainder % 13 + 1
+    tzolkin_name = Tzolkin_names[remainder % 20]
+    
+    print(f"{tzolkin_number} {tzolkin_name} {tzolkin_year}")
