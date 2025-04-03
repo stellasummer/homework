@@ -1,0 +1,23 @@
+n=input()
+n=int(n)
+Haab_m={'pop':0,'no':1, 'zip':2, 'zotz':3, 'tzec':4, 'xul':5, 'yoxkin':6, 
+        'mol':7, 'chen':8, 'yax':9, 'zac':10, 'ceh':11, 'mac':12,
+         'kankin':13, 'muan':14, 'pax':15, 'koyab':16, 'cumhu':17,'uayet':18}
+Tzol_n={1:'imix', 2:'ik', 3:'akbal', 4:'kan',5:'chicchan', 6:'cimi',
+         7:'manik', 8:'lamat', 9:'muluk', 10:'ok', 11:'chuen', 12:'eb',
+          13:'ben', 14:'ix', 15:'mem', 16:'cib', 17:'caban', 18:'eznab',
+           19:'canac', 0:'ahau'}
+while(n>0):
+    n-=1
+    H_d,H_m=input().split('. ')
+    H_m,H_y=H_m.split()
+    H_y=int(H_y)
+    H_d=int(H_d)+1
+    H_m=Haab_m[H_m]
+    summary=H_d+H_m*20+365*H_y
+    T_y=summary//260
+    T_num=(summary%260)%13
+    if T_num==0:
+      T_num=13
+    T_name=Tzol_n[(summary%260)%20]
+    print("%d %s %d"%(T_num,T_name,T_y))
